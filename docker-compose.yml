@@ -1,0 +1,18 @@
+services:
+  hytale:
+    build: .
+    container_name: hytale-server
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    environment:
+      - JAVA_XMS=8G
+      - JAVA_XMX=8G
+      - SERVER_NAME=Hytale Server
+      - SERVER_MOTD=Welcome to my Hytale server!
+      - MAX_PLAYERS=10
+      - MAX_VIEW_RADIUS=584
+    ports:
+      - "5520:5520/udp"
+    volumes:
+      - ./data:/data
